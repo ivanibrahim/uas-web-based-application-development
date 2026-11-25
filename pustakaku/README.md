@@ -12,7 +12,7 @@ Aplikasi web pencatatan dan katalog buku perpustakaan berbasis Next.js (App Rout
 1. **Clone repository:**
    ```bash
    git clone [https://github.com/ivanibrahim/uas-web-based-application-development.git](https://github.com/ivanibrahim/uas-web-based-application-development.git)
-   cd uas-web-based-application-development
+   cd uas-web-based-application-development/pustakaku
 
 2. **Instalasi dependensi:**
    ```bash
