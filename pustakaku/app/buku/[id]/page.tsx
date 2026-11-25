@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import FormEditStok from "@/components/FormEditStok";
 
 async function KontenDetailBuku({
   params,
@@ -60,6 +61,11 @@ async function KontenDetailBuku({
               {buku.deskripsi || "Tidak ada deskripsi untuk buku ini."}
             </p>
           </div>
+          <FormEditStok
+            bukuId={buku.id}
+            stokTersedia={buku.stokTersedia}
+            stokTotal={buku.stokTotal}
+          />
         </div>
       </div>
     </div>

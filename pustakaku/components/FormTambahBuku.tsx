@@ -10,7 +10,10 @@ export default function FormTambahBuku() {
   const [state, formAction, pending] = useActionState(tambahBuku, awal);
 
   return (
-    <form action={formAction} className="mt-6 space-y-4 rounded-xl border bg-white p-6 shadow-sm">
+    <form
+      action={formAction}
+      className="mt-6 space-y-4 rounded-xl border bg-white p-6 shadow-sm"
+    >
       {/* Judul * */}
       <div>
         <label htmlFor="judul" className="block text-sm font-medium text-gray-700">
@@ -71,8 +74,8 @@ export default function FormTambahBuku() {
         )}
       </div>
 
-      {/* Tahun terbit & Jumlah stok * (2 kolom sesuai mockup) */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {/* Tahun terbit & Stok (saat ini + total) */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label htmlFor="tahunTerbit" className="block text-sm font-medium text-gray-700">
             Tahun terbit
@@ -91,20 +94,38 @@ export default function FormTambahBuku() {
         </div>
 
         <div>
-          <label htmlFor="stok" className="block text-sm font-medium text-gray-700">
-            Jumlah stok <span className="text-red-600">*</span>
+          <label htmlFor="stokTersedia" className="block text-sm font-medium text-gray-700">
+            Stok saat ini <span className="text-red-600">*</span>
           </label>
           <input
-            id="stok"
-            name="stok"
+            id="stokTersedia"
+            name="stokTersedia"
+            type="number"
+            min={0}
+            placeholder="3"
+            defaultValue={state.values?.stokTersedia}
+            className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-gray-900 focus:outline-none"
+          />
+          {state.galat?.stokTersedia && (
+            <p className="mt-1 text-xs text-red-600">{state.galat.stokTersedia}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="stokTotal" className="block text-sm font-medium text-gray-700">
+            Stok total <span className="text-red-600">*</span>
+          </label>
+          <input
+            id="stokTotal"
+            name="stokTotal"
             type="number"
             min={0}
             placeholder="5"
-            defaultValue={state.values?.stok}
+            defaultValue={state.values?.stokTotal}
             className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-gray-900 focus:outline-none"
           />
-          {state.galat?.stok && (
-            <p className="mt-1 text-xs text-red-600">{state.galat.stok}</p>
+          {state.galat?.stokTotal && (
+            <p className="mt-1 text-xs text-red-600">{state.galat.stokTotal}</p>
           )}
         </div>
       </div>
@@ -128,7 +149,7 @@ export default function FormTambahBuku() {
         <p className="text-sm text-red-600">{state.pesan}</p>
       )}
 
-      {/* Tombol Batal & Simpan sesuai mockup */}
+      {/* Tombol Batal & Simpan */}
       <div className="flex items-center justify-between pt-2">
         <Link
           href="/buku"
