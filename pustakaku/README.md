@@ -9,8 +9,11 @@ Aplikasi web pencatatan dan katalog buku perpustakaan berbasis Next.js (App Rout
 - **Tambah Buku (`/buku/baru`)**: Formulir penambahan buku baru dengan validasi server melalui Next.js Server Actions.
 
 ## Cara Menjalankan Proyek
-
 1. **Clone repository:**
    ```bash
    git clone [https://github.com/ivanibrahim/uas-web-based-application-development.git](https://github.com/ivanibrahim/uas-web-based-application-development.git)
    cd uas-web-based-application-development
+
+2. **Instalasi dependensi:**
+   ```bash
+   npm install
